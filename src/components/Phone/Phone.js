@@ -10,6 +10,9 @@ const Phone = (props) => {
                <h3>Name: {phone_name}</h3>
                <p>Price: ${price}</p>
             </div>
+            <button className='card-btn'>
+               <p>Add to Cart</p>
+            </button>
         </div>
     );
 };
