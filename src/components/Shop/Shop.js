@@ -1,15 +1,32 @@
 import React, { useEffect, useState } from 'react';
+import Cart from '../Cart/Cart';
 import Phone from '../Phone/Phone';
 import './Shop.css'
 
 const Shop = () => {
     const [phones,setPhones] = useState([]);
+    const [cart,setCart] = useState([]);
 
     useEffect( () =>{
         fetch('data.json')
         .then(res => res.json())
         .then(data => setPhones(data));
     },[])
+
+    const handleAddToCart =(selectedPhone)=>{
+       let newCart = [];
+       const exits = cart.find(phone => phone.id === selectedPhone.id);
+       if(!exits && cart.length <= 3){
+           newCart = [...cart,selectedPhone];
+       }
+       else{
+           newCart = [...cart];
+           alert('You do not select more than 4 phone');
+       }
+       
+       setCart(newCart);
+
+    }
     return (
         <div className='shop'>
             <div className="product-container">
@@ -17,16 +34,12 @@ const Shop = () => {
                   phones.map(phone => <Phone
                      key={phone.id}
                      phone={phone}
+                     handleAddToCart={handleAddToCart}
                      ></Phone>)
               }
             </div>
             <div className="cart-container">
-                  <h2 className='cart-title'>Selected Phones</h2>
-                  <div className='cart-btn'>
-                  <button className='btn1'><p>CHOOSE 1 FOR ME</p></button>
-                  <br/>
-                  <button className='btn2'><p>CHOOSE AGAIN</p></button>
-                  </div>
+                <Cart cart={cart}></Cart>
             </div>
         </div>
     );
