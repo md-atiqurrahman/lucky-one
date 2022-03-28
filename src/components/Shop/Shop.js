@@ -21,7 +21,7 @@ const Shop = () => {
        }
        else{
            newCart = [...cart];
-           alert('You already selected the phone or more than 4');
+           alert('You have selected more than 4 phone');
        }
        
        setCart(newCart);
