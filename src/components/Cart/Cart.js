@@ -8,7 +8,12 @@ const Cart = (props) => {
    for(const phone of cart){
     name.push(phone.phone_name);
    }
-   console.log(name);
+   console.log(cart)
+   let number = 0;
+   const getRandomNumber = () =>{
+       number = number + Math.floor((Math.random() * 4));
+   }
+   console.log(number)   
     return (
         <div>
             <h2 className='cart-title'>Selected Phones</h2>
@@ -17,9 +22,10 @@ const Cart = (props) => {
                <p>{name[1]}</p>            
                <p>{name[2]}</p>            
                <p>{name[3]}</p> 
-            </div>           
+            </div>
+            <p>choosing phone:</p>           
             <div className='cart-btn'>
-                 <button className='btn1'>
+                 <button className='btn1' onClick={getRandomNumber}>
                      CHOOSE 1 FOR ME
                  </button>
                  <br/>
