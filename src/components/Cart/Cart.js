@@ -9,18 +9,33 @@ const Cart = (props) => {
     name.push(phone.phone_name);
    }
    const getRandomNumber = () =>{
-       let randomNumber = Math.floor(Math.random()*4);
-       const phoneName = name[randomNumber];
-       document.getElementById('choose-one').innerHTML = phoneName;
+       const spanTag =  document.getElementById('choose-one');
+
+       const getInnerHtml =(number) =>{
+          let randomNumber = Math.floor(Math.random()* number);
+          const phoneName = name[randomNumber];   
+          spanTag.innerHTML = phoneName;
+       }
+       if(spanTag.innerHTML === ''){
+            getInnerHtml(4);
+       }
+       else if(spanTag.innerHTML === 'undefined'){
+           spanTag.innerHTML = '';
+           alert('You have to select minimum 4 phone first');
+       }
+       else{
+           alert('Already choose a phone for you.Need another one??');
+           spanTag.innerHTML = '';
+       }
    }
     return (
         <div>
             <h2 className='cart-title'>Selected Phones</h2>
             <div className='phone-name'>
-               <p>{name[0]}</p>            
-               <p>{name[1]}</p>            
-               <p>{name[2]}</p>            
-               <p>{name[3]}</p> 
+               <p className='selected-phone'>{name[1]}</p>            
+               <p className='selected-phone'>{name[2]}</p>            
+               <p className='selected-phone'>{name[0]}</p>            
+               <p className='selected-phone'>{name[3]}</p> 
             </div>
             <p className='choose-title'>
                 Choose One:

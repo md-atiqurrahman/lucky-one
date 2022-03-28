@@ -14,6 +14,7 @@ const Shop = () => {
     },[])
 
     const handleAddToCart =(selectedPhone)=>{
+       
        let newCart = [];
        const exits = cart.find(phone => phone.id === selectedPhone.id);
        if(!exits && cart.length <= 3){
@@ -21,7 +22,7 @@ const Shop = () => {
        }
        else{
            newCart = [...cart];
-           alert('You have selected more than 4 phone Or already selected the phone');
+           alert('You have selected more than 4 phone Or already selected this phone');
        }
        
        setCart(newCart);
@@ -30,6 +31,8 @@ const Shop = () => {
     const removeName = () =>{
         const emptyCart = cart.splice(4);
         setCart(emptyCart);
+        const spanTag = document.getElementById('choose-one');
+        spanTag.innerHTML = '';
      
   }
     return (
