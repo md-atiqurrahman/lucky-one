@@ -8,6 +8,11 @@ const Cart = (props) => {
    for(const phone of cart){
     name.push(phone.phone_name);
    }
+   const getRandomNumber = () =>{
+       let randomNumber = Math.floor(Math.random()*4);
+       const phoneName = name[randomNumber];
+       document.getElementById('choose-one').innerHTML = phoneName;
+   }
     return (
         <div>
             <h2 className='cart-title'>Selected Phones</h2>
@@ -17,9 +22,12 @@ const Cart = (props) => {
                <p>{name[2]}</p>            
                <p>{name[3]}</p> 
             </div>
-            <p>choosing phone:</p>           
+            <p className='choose-title'>
+                Choose One:
+               <span className='choose-one' id='choose-one'></span>
+            </p>           
             <div className='cart-btn'>
-                 <button className='btn1'>
+                 <button className='btn1' onClick={getRandomNumber}>
                      CHOOSE 1 FOR ME
                  </button>
                  <br/>

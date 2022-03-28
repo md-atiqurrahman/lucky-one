@@ -22,3 +22,12 @@
     font-size: 20px;
     color: #385fda;
 }
+.choose-title{
+    font-size: 16px;
+    font-weight: bolder;
+}
+.choose-one{
+    font-size: 16px;
+    color: #385fda;
+    margin-left: 4px;
+}
