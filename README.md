@@ -1,6 +1,6 @@
 # iPhone - Apple Store
 
-This project was bootstrapped with [live website link](https://celebrated-cranachan-1673b7.netlify.app/).
+## This project live site is [live website link](https://celebrated-cranachan-1673b7.netlify.app/).
 
 ## Available Scripts
 
