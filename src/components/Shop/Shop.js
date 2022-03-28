@@ -21,12 +21,17 @@ const Shop = () => {
        }
        else{
            newCart = [...cart];
-           alert('You do not select more than 4 phone');
+           alert('You already selected the phone or more than 4');
        }
        
        setCart(newCart);
 
     }
+    const removeName = () =>{
+        const emptyCart = cart.splice(4);
+        setCart(emptyCart);
+     
+  }
     return (
         <div className='shop'>
             <div className="product-container">
@@ -39,7 +44,7 @@ const Shop = () => {
               }
             </div>
             <div className="cart-container">
-                <Cart cart={cart}></Cart>
+                <Cart cart={cart} removeName={removeName}></Cart>
             </div>
         </div>
     );

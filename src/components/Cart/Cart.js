@@ -2,18 +2,12 @@ import React from 'react';
 import './Cart.css';
 
 const Cart = (props) => {
-   const {cart} = props;
-   console.log(cart);
+   const {cart,removeName} = props;
+
    let name = [];
    for(const phone of cart){
     name.push(phone.phone_name);
    }
-   console.log(cart)
-   let number = 0;
-   const getRandomNumber = () =>{
-       number = number + Math.floor((Math.random() * 4));
-   }
-   console.log(number)   
     return (
         <div>
             <h2 className='cart-title'>Selected Phones</h2>
@@ -25,11 +19,11 @@ const Cart = (props) => {
             </div>
             <p>choosing phone:</p>           
             <div className='cart-btn'>
-                 <button className='btn1' onClick={getRandomNumber}>
+                 <button className='btn1'>
                      CHOOSE 1 FOR ME
                  </button>
                  <br/>
-                 <button className='btn2'>
+                 <button className='btn2' onClick={removeName}>
                      CHOOSE AGAIN
                  </button>
             </div>
